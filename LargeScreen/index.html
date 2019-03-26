@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>大屏数据展示</title>
+    <link href="css/liMarquee.css" rel="stylesheet" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link href="css/base.css" rel="stylesheet" />
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="column-1">
+            <div class="left"></div>
+            <div class="center">
+                <label>2018年12月12日</label>
+                <label>00:00:00</label>
+            </div>
+            <div class="right">
+                <h3>开市中</h3>
+                <h3>银行大额打款关闭时间：17:15</h3>
+                <h3>电子汇票系统关闭时间：20:00</h3>
+            </div>
+        </div>
+        <div class="column-2">
+            <div class="item-1">
+                <div class="title">注册</div>
+                <ul class="bottom">
+                    <li>
+                        <h2>总用户量</h2>
+                        <h3>46476</h3>
+                    </li>
+                    <li>
+                        <h2>今日新增</h2>
+                        <h3 style="color:#ff8200;">27</h3>
+                    </li>
+                </ul>
+            </div>
+            <div class="item-1">
+                <div class="title">开户</div>
+                <ul class="bottom">
+                    <li>
+                        <h2>总开户量</h2>
+                        <h3>334</h3>
+                    </li>
+                    <li>
+                        <h2>今日新增</h2>
+                        <h3 style="color:#ff8200;">6</h3>
+                    </li>
+                </ul>
+            </div>
+            <div class="item-2">
+                <ul>
+                    <li>
+                        <h2>今日成单</h2>
+                        <h3 style="color:#ff8200;">203笔</h3>
+                    </li>
+                    <li>
+                        <h2>交易额</h2>
+                        <h3>￥200,746,530.07</h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="column-3">
+            <div class="item">
+                <strong>0个</strong>
+                <label>账户待审核</label>
+                <img src="icon_bell.png" alt="bell" />
+            </div>
+            <div class="item">
+                <strong>6个</strong>
+                <label>今日已开户</label>
+                <img src="icon_bell.png" alt="bell" />
+            </div>
+            <div class="item">
+                <strong>6张</strong>
+                <label>票待上架</label>
+                <img src="icon_bell.png" alt="bell" />
+            </div>
+            <div class="item">
+                <strong>75张</strong>
+                <label>今日已上架</label>
+                <img src="icon_bell.png" alt="bell" />
+            </div>
+        </div>
+        <div class="column-4">
+            <div class="left">
+                <label class="title">0笔异常订单</label>
+                <ul class="th">
+                    <li>单号</li>
+                    <li>持续时间</li>
+                </ul>
+                <div class="tb str_wrap">
+                    <!--   <div class="">
+                        <h4>1215812156812432121573</h4>
+                        <h4>40分钟</h4>
+                    </div>
+                    <div>
+                        <h4>1215812156843158121516</h4>
+                        <h4>16分钟</h4>
+                    </div>
+                    <div>
+                        <h4>1215812156812154021794</h4>
+                        <h4>25分钟</h4>
+                    </div>
+                    <div>
+                        <h4>1215812154912158126543</h4>
+                        <h4>06分钟</h4>
+                    </div>
+                    <div>
+                        <h4>1215812156812158123543</h4>
+                        <h4>01分钟</h4>
+                    </div>
+                    <div>
+                        <h4>1215812156812158121765</h4>
+                        <h4>47分钟</h4>
+                    </div>
+                    <div>
+                        <h4>1215812156812158121486</h4>
+                        <h4>43分钟</h4>
+                    </div>
+                    <div>
+                        <h4>1215812156812158121563</h4>
+                        <h4>58分钟</h4>
+                    </div>
+                    <div>
+                        <h4>1215812313681215812468</h4>
+                        <h4>07分钟</h4>
+                    </div>
+                    <div>
+                        <h4>1215814356812158121568</h4>
+                        <h4>17分钟</h4>
+                    </div>
+                    <div>
+                        <h4>1265422156812158121568</h4>
+                        <h4>39分钟</h4>
+                    </div>-->
+                </div>
+            </div>
+            <div class="right ">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" id="line"></div>
+                        <!--<div class="swiper-slide" id="pie"></div>-->
+
+                    </div>
+                    <!-- 如果需要导航按钮 -->
+                    <!--<div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>-->
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+        <div class="column-5">
+            公告：暂无。
+        </div>
+    </div>
+
+    <!-- 插件js引用 -->
+    <script src="js/jquery.liMarquee.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/echart.min.js"></script>
+</body>
+
+</html>
