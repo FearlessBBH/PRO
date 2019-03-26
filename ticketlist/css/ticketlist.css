@@ -1,0 +1,610 @@
+﻿div {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.container {
+    position: relative;
+    margin: 0;
+    background: #F3F5F9;
+}
+
+/* swiper */
+.swiper-container {
+    width: 100%;
+    height: 2.9rem;
+}
+
+.swiper-slide {
+    background: #E4E4E4 url(../images/ticketlist/pic_photo.png) no-repeat center center;
+    background-size: 2.85rem 2.19rem;
+    justify-content: center;
+    align-items: center;
+}
+
+    .swiper-slide > img {
+        max-width: 100%;
+        max-height: 100%;
+        border: none;
+    }
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: .11rem;
+    left: auto;
+    right: .27rem;
+    width: auto;
+    height: .27rem;
+    border-radius: .13rem;
+    background-color: #adadad;
+    justify-content: center;
+    align-items: center;
+    opacity: .7;
+}
+
+    .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0 .04rem;
+    }
+
+        .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet:first-child {
+            margin-left: .11rem;
+        }
+
+        .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet:last-child {
+            margin-right: .11rem;
+        }
+
+.swiper-pagination-bullet {
+    width: .05rem;
+    height: .05rem;
+    background-color: #fff;
+    opacity: .7;
+}
+
+.swiper-pagination-bullet-active {
+    width: .73rem;
+    border-radius: .03rem;
+    background: #fff;
+    opacity: 1;
+}
+
+
+/* 排序&&筛选 */
+.sf_fixed {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+}
+
+.sortfilt {
+    height: 1.23rem;
+    background: #FAFBFD;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid #E9E9E9;
+    justify-content: center;
+}
+
+    .sortfilt .sort {
+        width: 8.8rem;
+        height: 100%;
+    }
+
+        .sortfilt .sort > li {
+            float: left;
+            display: flex;
+            display: -webkit-flex;
+            width: calc(100% / 4);
+            height: 100%;
+            font-size: .32rem;
+            color: #333;
+            align-items: center;
+            justify-content: center;
+            background: url(../images/ticketlist/icon_line.png) no-repeat center right;
+            background-size: .03rem .29rem;
+        }
+
+            .sortfilt .sort > li > img {
+                margin: .05rem 0 0 .05rem;
+                width: .2rem;
+                height: .3rem;
+                border: none;
+            }
+
+    .sortfilt .filt {
+        width: 1.2rem;
+        height: 100%;
+        font-size: .32rem;
+        font-weight: 600;
+        color: #ff8200;
+        justify-content: center;
+        align-items: center;
+    }
+
+/* 列表 */
+.list {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    background: #F3F5F9;
+}
+
+    .list .item:last-child {
+        margin-bottom: .35rem;
+    }
+
+    .list .item {
+        margin-top: .35rem;
+        position: relative;
+        width: 9.36rem;
+        height: 5.05rem;
+        background: url(../images/ticketlist/bg_diwen.png) repeat;
+        box-shadow: 0 0 .2rem rgba(0, 0, 0, 0.08);
+        border-radius: .13rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .list .item .title {
+            width: 100%;
+            height: .83rem;
+            border-bottom: 1px solid #E9E9E9;
+            background-color: #fff;
+            border-top-left-radius: .13rem;
+            border-top-right-radius: .13rem;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+            .list .item .title > h2 {
+                width: 5.87rem;
+                height: 100%;
+                line-height: .83rem;
+                font-size: .4rem;
+                font-weight: 400;
+                letter-spacing: 1px;
+                color: #333;
+                text-indent: .32rem;
+            }
+
+            .list .item .title > img.icon_clock {
+                width: .28rem;
+                height: .28rem;
+                border: none;
+            }
+
+            .list .item .title > label {
+                margin-left: .07rem;
+                font-size: .27rem;
+                color: #999;
+            }
+
+            .list .item .title .line {
+                margin: 0 .16rem;
+                width: .03rem;
+                height: .28rem;
+                background: #e9e9e9;
+            }
+
+            .list .item .title > img.icon_loc {
+                width: .2rem;
+                height: .28rem;
+                border: none;
+            }
+
+        .list .item .msg {
+            margin-top: .31rem;
+            width: 100%;
+            height: 1.8rem;
+            flex-wrap: nowrap;
+        }
+
+            .list .item .msg > img {
+                margin-left: .32rem;
+                width: 2.16rem;
+                height: 1.63rem;
+                border: none;
+                background-color: #999;
+            }
+
+            .list .item .msg .stitle {
+                margin-left: .3rem;
+                width: 2.07rem;
+                height: 100%;
+            }
+
+                .list .item .msg .stitle > li {
+                    float: left;
+                    margin-top: .17rem;
+                    width: 100%;
+                    height: .31rem;
+                    font-size: .32rem;
+                    font-weight: 400;
+                    color: #999;
+                }
+
+                    .list .item .msg .stitle > li:first-child {
+                        margin-top: 0;
+                        font-weight: 600;
+                        color: #333;
+                    }
+
+            .list .item .msg .detail {
+                width: 4.2rem;
+                height: 100%;
+            }
+
+                .list .item .msg .detail > li {
+                    float: left;
+                    margin-top: .17rem;
+                    width: 100%;
+                    height: .31rem;
+                    font-size: .32rem;
+                    font-weight: 400;
+                    color: #333;
+                }
+
+                    .list .item .msg .detail > li > strong {
+                        margin-left: .19rem;
+                        padding: 0 .1rem;
+                        height: .35rem;
+                        line-height: .35rem;
+                        font-weight: 100;
+                        background-color: #FF3B30;
+                        color: #fff;
+                        border-radius: .05rem;
+                    }
+
+                    .list .item .msg .detail > li:first-child {
+                        font-weight: 600;
+                        margin-top: 0;
+                    }
+
+        .list .item .money {
+            margin-top: .25rem;
+            width: 8.72rem;
+            height: 1.16rem;
+            background: #fff;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+            .list .item .money > div {
+                height: 100%;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: flex-end;
+            }
+
+                .list .item .money > div > h3 {
+                    font-size: .27rem;
+                    font-weight: 400;
+                    color: #999;
+                }
+
+                .list .item .money > div > h4 {
+                    font-size: .35rem;
+                    font-weight: 600;
+                    color: #333;
+                }
+
+                    .list .item .money > div > h4 > label {
+                        font-size: .45rem;
+                        font-weight: 600;
+                    }
+
+            .list .item .money .years {
+                width: 1.7rem;
+            }
+
+            .list .item .money .million {
+                width: 1.9rem;
+            }
+
+            .list .item .money .line {
+                width: 1px;
+                height: .77rem;
+                background: #e9e9e9;
+            }
+
+            .list .item .money .price {
+                margin-left: .2rem;
+                min-width: 2.87rem;
+                height: 100%;
+            }
+
+                .list .item .money .price > h4 {
+                    color: #FF3B30;
+                }
+
+        .list .item .more {
+            margin-top: .14rem;
+            width: 8.72rem;
+            height: .35rem;
+            font-size: .32rem;
+            color: #ff8200;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+            .list .item .more > img {
+                margin-left: .13rem;
+                width: .2rem;
+                height: .35rem;
+                border: none;
+            }
+
+        .list .item > i.icon_succeed {
+            position: absolute;
+            top: .56rem;
+            right: .03rem;
+            width: 2.44rem;
+            height: 2.44rem;
+            background: url(../images/ticketlist/logo_stamp.png) no-repeat center center;
+            background-size: 2.44rem 2.44rem;
+        }
+
+
+/* 遮盖层 */
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: none;
+}
+
+/* 筛选层 */
+.filtarea {
+    position: fixed;
+    top: 0;
+    right: -8.8rem;
+    width: 8.8rem;
+    height: 100%;
+    background: #FAFBFD;
+    z-index: 11;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .filtarea .title {
+        margin-top: .5rem;
+        height: .4rem;
+        text-indent: .24rem;
+        font-size: .4rem;
+        font-weight: 400;
+        color: #999;
+        background-color: transparent;
+    }
+
+    .filtarea > .input {
+        margin-top: .39rem;
+        width: 8.32rem;
+        height: .85rem;
+        border: 1px solid #e9e9e9;
+        border-radius: .13rem;
+        background: #fff url(../images/ticketlist/icon_fdj.png) no-repeat .19rem center;
+        background-size: .53rem .53rem;
+    }
+
+        .filtarea > .input > input {
+            margin-left: .99rem;
+            width: 7.32rem;
+            height: 100%;
+            font-size: .4rem;
+            color: #333;
+            border: none;
+            background-color: transparent;
+        }
+
+            .filtarea > .input > input::placeholder {
+                color: #ccc;
+            }
+
+    .filtarea > .radio,
+    .filtarea > .check {
+        margin-top: .4rem;
+        padding: 0 .24rem;
+        width: calc(100% - .48rem);
+        height: .63rem;
+        flex-wrap: nowrap;
+        background-color: transparent;
+    }
+
+        .filtarea > .radio > .item,
+        .filtarea > .check > .item {
+            width: 2.96rem;
+            height: 100%;
+            font-size: .35rem;
+            font-weight: 400;
+            text-indent: .86rem;
+            color: #999;
+            background: url(../images/ticketlist/icon_xuanze_b.png) no-repeat center left;
+            background-size: .63rem .63rem;
+            align-items: center;
+        }
+
+        .filtarea > .radio > .on,
+        .filtarea > .check > .on {
+            background: url(../images/ticketlist/icon_xuanze_a.png) no-repeat center left;
+            background-size: .63rem .63rem;
+            color: #333;
+        }
+
+    .filtarea > ul.type,
+    .filtarea > ul.price,
+    .filtarea > ul.collect {
+        margin-top: .4rem;
+        width: 100%;
+        min-height: .85rem;
+    }
+
+        .filtarea > ul.type > li,
+        .filtarea > ul.price > li,
+        .filtarea > ul.collect > li {
+            display: flex;
+            display: -webkit-flex;
+            width: 100%;
+            height: 100%;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+        }
+
+            .filtarea > ul.type > li > div,
+            .filtarea > ul.price > li > div {
+                height: .85rem;
+                font-size: .32rem;
+                font-weight: 400;
+                color: #333;
+                border-radius: .13rem;
+                background-color: #E5E5E5;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .filtarea > ul.type > li > .on,
+            .filtarea > ul.price > li > .on {
+                background-color: #ff8200;
+                color: #fff;
+            }
+
+            .filtarea > ul.type > li:nth-child(1) > div,
+            .filtarea > ul.price > li:nth-child(1) > div {
+                width: 2.55rem;
+            }
+
+            .filtarea > ul.type > li:nth-child(2) > div,
+            .filtarea > ul.price > li:nth-child(2) > div {
+                width: 1.73rem;
+            }
+
+        .filtarea > ul.price li {
+            flex-wrap: wrap !important;
+            justify-content: flex-start;
+        }
+
+            .filtarea > ul.price li > div {
+                margin-left: .24rem;
+            }
+
+                .filtarea > ul.price li > div:nth-child(4), .filtarea > ul.price li > div:nth-child(5) {
+                    margin-top: .24rem;
+                }
+
+    .filtarea > .line {
+        margin-top: .7rem;
+        width: 8.32rem;
+        height: 1px;
+        background: #e9e9e9;
+    }
+
+    .filtarea > ul.collect {
+        height: .85rem;
+    }
+
+        .filtarea > ul.collect > li {
+            justify-content: flex-start;
+        }
+
+            .filtarea > ul.collect > li > div {
+                height: .85rem;
+                font-size: .32rem;
+                font-weight: 400;
+                color: #333;
+                border-radius: .13rem;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+                .filtarea > ul.collect > li > div label {
+                    font-size: .35rem;
+                    font-weight: 400;
+                    color: #333;
+                }
+
+                .filtarea > ul.collect > li > div .input {
+                    margin-left: .11rem;
+                    height: 100%;
+                    border: 1px solid #e9e9e9;
+                    border-radius: .13rem;
+                    line-height: .85rem;
+                    font-size: .35rem;
+                    font-weight: 400;
+                    color: #333;
+                }
+
+                    .filtarea > ul.collect > li > div .input > input {
+                        height: 100%;
+                        font-size: .4rem;
+                        text-align: center;
+                        background-color: transparent;
+                        border: none;
+                    }
+
+                        .filtarea > ul.collect > li > div .input > input::placeholder {
+                            color: #ccc;
+                        }
+
+                .filtarea > ul.collect > li > div:nth-child(1) {
+                    width: 3.19rem;
+                }
+
+                    .filtarea > ul.collect > li > div:nth-child(1) > label {
+                        margin-left: .23rem;
+                    }
+
+                    .filtarea > ul.collect > li > div:nth-child(1) .input {
+                        width: 1.9rem;
+                    }
+
+                        .filtarea > ul.collect > li > div:nth-child(1) .input > input {
+                            width: 1.5rem;
+                        }
+
+                .filtarea > ul.collect > li > div:nth-child(2),
+                .filtarea > ul.collect > li:nth-child(2) > div:nth-child(1) {
+                    width: 5rem;
+                }
+
+                    .filtarea > ul.collect > li > div:nth-child(2) .input,
+                    .filtarea > ul.collect > li:nth-child(2) > div:nth-child(1) .input {
+                        width: 2.61rem;
+                    }
+
+                        .filtarea > ul.collect > li > div:nth-child(2) .input > input,
+                        .filtarea > ul.collect > li:nth-child(2) > div:nth-child(1) .input > input {
+                            width: 1.9rem;
+                            text-align: left;
+                            text-indent: .24rem;
+                        }
+
+    .filtarea .btn {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1.31rem;
+    }
+
+        .filtarea .btn > label {
+            height: 100%;
+            line-height: 1.31rem;
+            font-size: .45rem;
+            font-weight: 400;
+            color: #fff;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+            .filtarea .btn > label:nth-child(1) {
+                flex-grow: 1;
+                background-color: #4872FF;
+            }
+
+            .filtarea .btn > label:nth-child(2) {
+                flex-grow: 2;
+                background-color: #FF8200;
+            }

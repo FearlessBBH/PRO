@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="keywords" content="融资线">
+    <meta name="description" content="融资线">
+    <title>融资线-票面列表</title>
+    <!-- <link rel="icon" href="favicon.ico"> -->
+    <!-- 插件样式预留区 -->
+    <link href="css/swiper-4.3.5.min.css" rel="stylesheet" />
+
+    <!-- 基本样式 -->
+    <link href="css/base.css" rel="stylesheet" />
+
+    <!-- 主题样式 -->
+    <link href="css/ticketlist.css" rel="stylesheet" />
+
+    <!-- 基础js引用 -->
+    <script src="../js/Vue.min-v2.5.21.js"></script>
+    <!--<script src="js/jquery-1.11.0.min.js"></script>-->
+
+    <!-- 主体内容 -->
+    <!--<script src="js/ticketlist.js"></script>-->
+    <script src="js/vuetest.js"></script>
+</head>
+<body>
+    <script src="js/flexible_css.js"></script>
+    <script src="js/flexible.js"></script>
+    <!-- 移动端自适应，勿动 -->
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <!-- 主体 -->
+    <div class="container">
+        <!-- Swiper -->
+        <section class="swiper-container">
+            <div class="swiper-wrapper" id="swiperww">
+                <div class="swiper-slide" v-for="imgs in swipers">
+                    {{imgs.src}}
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </section>
+
+        <!-- 排序&&筛选 -->
+        <div class="column sortfilt">
+            <ul class="sort">
+                <li>
+                    年化收益
+                    <img src="images/ticketlist/select_no.png" alt="sort_no" />
+                </li>
+                <li>
+                    面额大小
+                    <img src="images/ticketlist/select_no.png" alt="sort_no" />
+                </li>
+                <li>
+                    距离到期日
+                    <img src="images/ticketlist/select_no.png" alt="sort_no" />
+                </li>
+                <li>
+                    发布时间
+                    <img src="images/ticketlist/select_no.png" alt="sort_no" />
+                </li>
+            </ul>
+            <div class="filt">筛选</div>
+        </div>
+
+        <!-- 列表 -->
+        <div class="column list">
+            <div class="item">
+                <div class="title">
+                    <h2>电子银行承兑汇票</h2>
+                    <img src="images/ticketlist/icon_time.png" class="icon_clock" />
+                    <label>发布于1小时前</label>
+                    <i class="line"></i>
+                    <img src="images/ticketlist/icon_address.png" class="icon_loc" />
+                    <label>上海</label>
+                </div>
+                <div class="msg">
+                    <img />
+                    <ul class="stitle">
+                        <li>票面金额</li>
+                        <li>距离到期日</li>
+                        <li>到期付款行</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>¥300,000.00</li>
+                        <li>2018年8月8日<strong>39天</strong></li>
+                        <li>招商银行上海分行长寿路支行多余的文字</li>
+                    </ul>
+                </div>
+                <div class="money">
+                    <div class="years">
+                        <h3>持票年化收益</h3>
+                        <h4>6.3%</h4>
+                    </div>
+                    <div class="million">
+                        <h3>每十万合计收益</h3>
+                        <h4>¥1500</h4>
+                    </div>
+                    <div class="line"></div>
+                    <div class="price">
+                        <h3>一口价</h3>
+                        <h4>¥<label>290,000.000</label></h4>
+                    </div>
+                </div>
+                <div class="more">
+                    查看详情
+                    <img src="images/ticketlist/Next_step_b.png" alt="img_next" />
+                </div>
+                <!-- 交易成功图标 -->
+                <i class="icon_succeed" style="display:none;"></i>
+            </div>
+        </div>
+
+        <!-- 遮盖层 -->
+        <div class="mask"></div>
+
+        <!-- 筛选层 -->
+        <div class="filtarea">
+            <div class="column title">按承兑行／人查找</div>
+            <div class="column input">
+                <input type="text" placeholder="承兑人／名称" />
+            </div>
+            <div class="column title">按票据类别</div>
+            <div class="column radio">
+                <div class="item on">银行承兑</div>
+                <div class="item">商业承兑</div>
+            </div>
+            <ul class="type">
+                <li style="display:;">
+                    <div class="on">国股</div>
+                    <div>城商</div>
+                    <div>三农</div>
+                </li>
+                <li style="display: none;">
+                    <div class="on">国企</div>
+                    <div>企业</div>
+                    <div>上市</div>
+                    <div>民营</div>
+                </li>
+            </ul>
+            <div class="column title">按票面金额</div>
+            <ul class="price">
+                <li style="display:;">
+                    <div class="on">小于10万</div>
+                    <div>10-50万</div>
+                    <div>50-100万</div>
+                    <div>100-300天</div>
+                    <div>300万以上</div>
+                </li>
+            </ul>
+            <div class="line"></div>
+            <div class="column title">按收票价</div>
+            <div class="column radio">
+                <div class="item on">年利率方式</div>
+                <div class="item">每十万方式</div>
+            </div>
+            <ul class="collect">
+                <li style="display:;">
+                    <div class="years">
+                        <label>年化</label>
+                        <div class="input">
+                            <input type="number" placeholder="0.00" />
+                            %
+                        </div>
+                    </div>
+                    <div class="million">
+                        <label>每十万+</label>
+                        <div class="input">
+                            <input type="number" placeholder="0.00" />
+                            元
+                        </div>
+                    </div>
+                </li>
+                <li style="display: none;">
+                    <div class="million">
+                        <label>每十万+</label>
+                        <div class="input">
+                            <input type="number" placeholder="¥0.00" />
+                            元
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="column check">
+                <div class="item">只看可交易</div>
+            </div>
+            <div class="btn">
+                <label>重置</label>
+                <label>确定</label>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 插件js引用 -->
+    <script src="js/swiper.min.js"></script>
+    <script>
+        new Vue({
+            el: '#swiperww',
+            data: {
+                swipers: [
+                    { src: 'images/ticketlist/icon_line.png' },
+                    { src: 'images/ticketlist/icon_line.png' },
+                    { src: 'images/ticketlist/icon_line.png' }
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
