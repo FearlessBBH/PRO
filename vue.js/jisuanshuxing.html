@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue:计算属性</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/Vue-v2.5.21.js"></script>
+    <script src='js/axios.min.js'></script>
+    <script src="https://cdn.bootcss.com/vue-resource/1.5.1/vue-resource.js"></script>
+    <!-- <script src="js/vue-resource-v1.5.1.min.js"></script> -->
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el: '#test',
+                data: { // 普通属性
+                    msg: 'Welcome to Vue',
+                    num1: 5
+                },
+                computed: { // 计算属性
+                    msg2: function () { // 该函数必须有返回值，用来获取属性的值，称为get函数
+                        return 'Welcome to My Vue';
+                    },
+                    reverseMsg: function () {
+                        // 可以包含逻辑处理操作，同时reverseMsg依赖于msg
+                        return this.msg.split(' ').reverse().join(' ');
+                    },
+                    num2: function () {
+                        console.log(new Date());
+                        return this.num1 - 1;
+                    }
+                },
+                methods: {
+                    change() {
+                        this.msg = 'Hey Babe';
+                    },
+                    getNum2() {
+                        console.log(new Date());
+                        return this.num1 - 1;
+                    }
+                }
+            });
+        };
+
+        function fn() {
+            setInterval(function () {
+                console.log(vm.num2);
+            }, 1000)
+        }
+    </script>
+</head>
+
+<body>
+    <div id="test">
+        <!-- Vue计算属性
+            1.基本用法
+            计算属性也是用来存储数据，但具有以下几个特点：
+            a. 数据可以进行逻辑处理操作
+            b. 对计算属性中的数据进行监视
+        -->
+        <!-- 1.基本用法 -->
+        <h2>{{msg}}</h2>
+        <h2>{{msg2}}</h2>
+
+        <!-- 对数据进行处理再显示 -->
+        <h2> {{msg.split(' ').reverse().join(' ')}}</h2>
+        <h2>{{reverseMsg}}</h2>
+        <button @click='change'>修改msg值</button>
+
+        <!-- 
+            2. 计算属性 vs 方法
+            将计算属性的get函数定义为一个方法也可以实现类似的功能
+            区别：
+                a.计算属性是基于它的依赖进行更新的，只有在相关依赖发生改变时才会更新变化
+                b.计算属性是有缓存的，只要相关依赖没有改变，多次访问计算属性得到的值是之前缓存的计算结果，不会多次执行
+         -->
+        <br>
+        <h2> {{num1}}</h2>
+        <h2> {{num2}}</h2>
+        <h2>{{getNum2()}}</h2>
+        <button onclick='fn()'>Test</button>
+    </div>
+</body>
+
+</html>
