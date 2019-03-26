@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>填列表储存并展示</title>
+    <link href="css/css.css" rel="stylesheet" />
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/js.js"></script>
+</head>
+<body>
+    <ul class="flex-container t1">
+        <li class="flex-item">
+            <label>姓名：</label>
+            <input type="text" />
+        </li>
+        <li class="flex-item">
+            <label>昵称：</label>
+            <input type="text" />
+        </li>
+        <li class="flex-item">
+            <label>手机号：</label>
+            <input type="text" />
+        </li>
+        <li class="flex-item">
+            <input id="next" type="button" value="enter" />
+            <input id="clear" type="button" value="clear" />
+        </li>
+    </ul>
+    <ul class="flex-container t2" style="display:none;">
+        <li class="flex-item">
+            <label>姓名：</label>
+            <strong></strong>
+        </li>
+        <li class="flex-item">
+            <label>昵称：</label>
+            <strong></strong>
+        </li>
+        <li class="flex-item">
+            <label>手机号：</label>
+            <strong></strong>
+        </li>
+        <li class="flex-item">
+            <input id="return" type="button" value="enter" />
+        </li>
+    </ul>
+   
+</body>
+</html>
