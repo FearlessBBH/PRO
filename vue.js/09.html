@@ -16,7 +16,9 @@
                     user: {
                         name: 'tom',
                         age: 13
-                    }
+                    },
+                    uid: '',
+
                 },
                 methods: {
                     send() {
@@ -69,7 +71,11 @@
                             })
                     },
                     getUserById(uid) {
-
+                        axios.get('https://api.github.com/users/' + uid)
+                            .then(resp => {
+                                //console.log(resp.data);
+                                this.user = resp.data;
+                            });
                     },
                 }
             });
@@ -92,6 +98,8 @@
                 1.自己拼接为键值对
                 2.使用transformRequest，在请求发送前将请求数据进行转换
                 3.如果是用模块化开发，可以使用qs（querystring）
+            axios本身并不支持发送跨域的请求，没有提供相应的API，作者也暂没计划在axios添加支持发送跨域请求，所以只能有第三方库【vue-resource】
+            
         -->
         <button @click='send'>发送ajax请求</button>
         <hr>
@@ -100,7 +108,10 @@
         <button @click='sendPost'>发送ajax请求</button>
         <hr>
         GitHub ID: <input type="text" v-model='uid'>
-        <button @click='getUserById'>获取指定GitHub信息并显示</button>
+        <button @click='getUserById(uid)'>获取指定GitHub信息并显示</button>
+        <br>
+        name: {{user.login}} <br>
+        img: <img :src="user.avatar_url" alt="">
     </div>
 </body>
 
