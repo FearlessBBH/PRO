@@ -1,0 +1,111 @@
+/* base */
+html body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    border: 0;
+    background: url(../images/bg.png) no-repeat;
+    background-size: 100% 100%;
+    overflow-x: hidden;
+}
+
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+code,
+b,
+del,
+dfn,
+em,
+img,
+q,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+caption,
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 14px;
+    font: inherit;
+    vertical-align: baseline;
+    font: 14px "SiyuanBlack", "PingFang";
+}
+
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+a:link {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #f00;
+}
+
+a:active {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul,
+ol,
+dl {
+    list-style: none;
+}
+
+.clearit::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+div {
+    display: flex;
+    display: -webkit-flex;
+}
+
+/*box-shadow: 0 0 10px RGBA(255, 130, 0, 1) inset;*/
