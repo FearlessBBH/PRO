@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jsonp:发送ajax请求</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/Vue-v2.5.21.js"></script>
+    <script src='js/axios.min.js'></script>
+    <script src="https://cdn.bootcss.com/vue-resource/1.5.1/vue-resource.js"></script>
+    <!-- <script src="js/vue-resource-v1.5.1.min.js"></script> -->
+    <style>
+        .current {
+            background-color: #999;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '#test',
+                data: {
+                    keyword: '',
+                    myData: [],
+                    now: -1 //当前选中项的索引
+                },
+                methods: {
+                    getData(e) {
+                        // 如果按方向键上、下，则不发请求
+                        if (e.keyCode == 38 || e.keyCode == 40) return;
+                        this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su', {
+                            params: {
+                                wd: this.keyword
+                            },
+                            jsonp: 'cb'
+                        }).then(resp => {
+                            //console.log(resp.data.s);
+                            this.myData = resp.data.s;
+                            this.myData.length = 4;
+                        });
+                    },
+                    changeDown() {
+                        this.now++;
+                        this.keyword = this.myData[this.now];
+                        if (this.now == this.myData.length) {
+                            this.now = -1;
+                        }
+                    },
+                    changeUp() {
+                        this.now--;
+                        this.keyword = this.myData[this.now];
+                        if (this.now == -2) {
+                            this.now = this.myData.length - 1;
+                        }
+                    },
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div id="test">
+        <!-- vue-resource 基本用法：
+            使用this.$http发送请求
+                this.$http.get(url, [config])
+                this.$http.head(url, [config])
+                this.$http.delete(url, [config])
+                this.$http.jsonp(url, [config])
+                this.$http.post(url, [body], [config])
+                this.$http.put(url, [body], [config])
+                this.$http.patch(url, [body], [config])
+        -->
+        <!-- https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=&json=1&p=3&sid=1428_21091_28724_28557_28585_28603_28626_20718&req=2&sc=eb&csor=0&pwd=a&cb=jQuery1102015046065574777356_1553572040166&_=1553572040168 -->
+        <input type="text" v-model='keyword' @keyup='getData($event)' @keydown.down='changeDown'
+            @keydown.up.prevent='changeUp'>
+        <ul>
+            <li v-for='(value,index) in myData' :class='{current:index==now}'>{{value}}</li>
+        </ul>
+        <p v-show='myData.length==0'>暂无数据...</p>
+    </div>
+</body>
+
+</html>
