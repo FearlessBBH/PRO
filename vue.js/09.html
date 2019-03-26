@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>axios:发送ajax请求</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/Vue-v2.5.21.js"></script>
+    <script src='js/axios.min.js'></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '#test',
+                data: {
+                    user: {
+                        name: 'tom',
+                        age: 13
+                    }
+                },
+                methods: {
+                    send() {
+                        // 1.axios([options])
+                        axios({
+                            method: 'get',
+                            url: 'user.json'
+                        }).then(function (resp) {
+                            //请求成功
+                            console.log(resp.data);
+                        }).catch(resp => {
+                            //请求失败
+                            console.log('请求失败：' + resp.status + ',' + resp.statusText)
+                        });
+                    },
+                    sendGet() {
+                        // axios.get('server.php?name=tom&age=23')
+                        axios.get('server.php', {
+                            params: {
+                                name: 'tom',
+                                age: 23
+                            }
+                        }).then(resp => {
+                            console.log(resp);
+                        }).catch(err => {
+                            console.log(
+                                '请求失败：' + err.status + ',' + err.statusText
+                            );
+                        })
+                    },
+                    sendPost() {
+                        //axios.post('server.php', 'name=tom&age=12') //方式1
+                        axios.post('server.php', this.user, {
+                                transformRequest: [
+                                    function (data) {
+                                        let params = '';
+                                        for (let index in data) {
+                                            params += index + '=' + data[index] + '&';
+                                        }
+                                        return params;
+                                    }
+                                ]
+                            })
+                            .then(resp => {
+                                console.log(resp);
+                            }).catch(err => {
+                                console.log(
+                                    '请求失败：' + err.status + ',' + err.statusText
+                                );
+                            })
+                    },
+                    getUserById(uid) {
+
+                    },
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div id="test">
+        <!-- 基本用法：
+            1.axios([options]);
+            2.axios.get(url[,options]);
+                传参:
+                    1.通过url传参
+                    2.通过params选项
+            3.axios.post(url,data,[options]);
+            axios默认发送数据时，数据格式是Request Payload,并非我们常用的Form Data格式，
+            所以参数必须要以键值对形式传递，不能以json形式传参，
+            传参方式：
+                1.自己拼接为键值对
+                2.使用transformRequest，在请求发送前将请求数据进行转换
+                3.如果是用模块化开发，可以使用qs（querystring）
+        -->
+        <button @click='send'>发送ajax请求</button>
+        <hr>
+        <button @click='sendGet'>发送ajax请求</button>
+        <hr>
+        <button @click='sendPost'>发送ajax请求</button>
+        <hr>
+        GitHub ID: <input type="text" v-model='uid'>
+        <button @click='getUserById'>获取指定GitHub信息并显示</button>
+    </div>
+</body>
+
+</html>

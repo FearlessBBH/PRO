@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test1</title>
+    <script src="js/vue.js"></script>
+    <!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+    <!-- <script src="test.js"></script> -->
+    <script>
+        window.onload=function(){
+            Vue.config.devtools = false;
+
+            new Vue({
+                el:'#aa',
+                data:{
+                    arr:[151,156,178],
+                    ff:true,
+                },
+                methods:{
+                    show:function(){
+                        console.log("Show Function");
+                    },
+                    add(){
+                        //console.log(this);
+
+                        this.arr.push(666);
+                        this.show();
+                    }
+                }
+            });
+        }
+    </script>
+
+    <style type="text/css">
+        div,
+        body {
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="aa">
+        <button v-on:click='ff=!ff'>Click Me!</button>
+        <button v-on:mouseover='add' v-show='ff'>Add Arry!</button>
+        {{arr}}
+    </div>
+</body>
+
+</html>

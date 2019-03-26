@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>属性的绑定和属性的简写</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/Vue-v2.5.21.js"></script>
+    <script>
+        window.onload = function () {
+            let vm = new Vue({
+                el: '#test',
+                data: {
+                    url: 'https://img.alicdn.com/tfs/TB1Jj1zSpXXXXa8XpXXXXXXXXXX-392-84.png',
+                    w: '200px',
+                    h: '100px',
+                },
+                methods: {}
+            });
+        };
+    </script>
+
+</head>
+
+<body>
+    <div id="test">
+        <!-- 可以直接写data，v-bind:属性=‘’，不用打{{}} -->
+        <!-- <img v-bind:src="url" alt=""> -->
+
+        <!-- 属性的简写 v-bind:src==>:src -->
+        <img :src="url" :width='w' :height='h'>
+    </div>
+</body>
+
+</html>

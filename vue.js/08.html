@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>过滤器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/Vue-v2.5.21.js"></script>
+    <script>
+        /**
+         * 自定义过滤器
+         */
+        Vue.filter('addZero', function (data) {
+            //console.log(data);
+            return data < 10 ? '0' + data : data;
+        });
+        // Vue.filter('number', (data, m) => {
+        //     //console.log(data, m);
+        //     return data.toFixed(m);
+        // });
+        Vue.filter('date', data => {
+            let d = new Date(data);
+            return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' +
+                d.getMinutes() +
+                ':' + d.getSeconds();
+        });
+        window.onload = function () {
+            let vm = new Vue({
+                el: '#test',
+                data: {
+                    currentTime: Date.now()
+                },
+                filters: {
+                    // 局部过滤器
+                    number: (data, m) => {
+                        return data.toFixed(m);
+                    }
+                },
+                methods: {}
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div id="test">
+        <!-- <h3>{{8 | addZero}}</h3> -->
+        <!-- <h3>{{12.345678|number(3)}}</h3> -->
+        <!-- 全局过滤器 -->
+        <h3>{{currentTime|date}}</h3>
+        <hr>
+        <!-- 局部过滤器 -->
+        <h3>{{12.345678|number(3)}}</h3>
+    </div>
+</body>
+
+</html>
