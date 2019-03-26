@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SrcollPlay</title>
+    <!-- 百度jq压缩包 -->
+    <link href="css/scrollplay.css" rel="stylesheet" />
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/iscroll.js"></script>
+    <style type="text/css">
+        .trans {
+            transition: left .5s ease;
+        }
+
+        body {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper" class="container">
+        <div class="wrapper">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var Scroll = new iScroll('wrapper', {
+                hScroll: true,
+                hScrollbar: true,
+                vScroll: false,
+                vScrollbar: false
+            });
+            var r = setInterval(function () {
+                w_left = parseInt($('.wrapper').css('left'));
+                w_width = $('.wrapper').width() - $(window).width();
+                m = w_left / w_width;
+                move = -(($(window).width() - $('.circle').width()) * m);
+                $('.circle').css({ 'left': move });
+            }, 1);
+        });
+    </script>
+</body>
+</html>
